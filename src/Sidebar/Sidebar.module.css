@@ -1,0 +1,91 @@
+
+
+.sidebar{
+    width: 30%;
+    height: 100vh;
+
+    border-right: 1px solid var(--light-gray-color);
+}
+
+.sidebarHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 18px;
+
+    color: white;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.sidebarTitle {
+    font-weight: bold;
+}
+
+.sidebarIcon {
+    font-size: 20px;
+    color: var(--primary-light-gray-text);
+}
+
+.sidebarSearchArea{
+    padding: 0 20px;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.sidebarSearchInput {
+    width: 80%;
+    border: none;
+    padding: 15px 20px;
+
+    background-color: transparent;
+
+    color: var(--primary-light-gray-text);
+    font-size: 17px;
+}
+
+.sidebarSearchInput:focus {
+    outline: none;
+}
+
+.sidebarSearchIcon {
+    font-size: 15px;
+    color: var(--primary-light-gray-text);
+}
+
+.listNotes {
+    list-style: none;
+}
+
+/*for the side bar note*/
+.sidebarNote{
+    width: 100%;
+    padding: 10px 30px;
+
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.sidebarNote:hover{
+    background-color: var(--light-gray-color);
+}
+
+.sidebarNote.active{
+    background-color: var(--dark-blue-color);
+}
+
+.sidebarNoteTitle{
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.sidebarNotePreview {
+    color: var(--primary-light-gray-text);
+    font-size: 14px;
+}
+
+.sidebarNoteModified{
+    color: var(--secondary-light-gray-text);
+    font-size: 12px;
+}

@@ -1,38 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Nunito", "Helvetica";
+}
+
+html {
+    --dark-bg: #1D2327;
+    --dark-blue-color: #3361CC66;
+    --dark-gray-color: #2C333880;
+    --light-gray-color: #79797966;
+
+    --dark-gray-text: #515052;
+    --primary-light-gray-text: #8C8F94;
+    --secondary-light-gray-text: #A7AAAD;
+}
+
+
+
 .App {
-  text-align: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background-color: var(--dark-bg);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+    display: flex;
 }
