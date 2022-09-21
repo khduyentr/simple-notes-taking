@@ -10,7 +10,16 @@ const timeFormat = {
     minute: "2-digit"
 }
 
-function Sidebar({ notes, onCreateNote, onDeleteNote }) {
+function Sidebar({ 
+    notes, 
+    onCreateNote, 
+    onDeleteNote,
+    activeNote, 
+    setActiveNote}) {
+
+
+    const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
+    
     return (
         <div className={styles.sidebar}>
             <div className={styles.sidebarHeader}>
@@ -36,8 +45,14 @@ function Sidebar({ notes, onCreateNote, onDeleteNote }) {
             <div className={styles.sidebarNotes}>
                 <ul className={styles.listNotes}>
 
-                    {notes.map((note) => (
-                        <li className={clsx(styles.sidebarNote)}> 
+                    {sortedNotes.map((note) => (
+                        <li className={clsx(
+                                styles.sidebarNote, {
+                                    [styles.active]: note.id === activeNote
+                                })}
+
+                            onClick={() => setActiveNote(note.id)}> 
+                            
                             <div className={styles.sidebarNoteTitle}>
                                 <strong>{note.title}</strong>
 
