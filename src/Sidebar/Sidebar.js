@@ -2,17 +2,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import clsx from 'clsx'
 
 
-import { faNoteSticky, faBars, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faNoteSticky, faBars, faSearch, faTrash} from '@fortawesome/free-solid-svg-icons'
 import styles from './Sidebar.module.css'
 
+const timeFormat = {
+    hour: "2-digit",
+    minute: "2-digit"
+}
 
-function Sidebar() {
+function Sidebar({ notes, onCreateNote, onDeleteNote }) {
     return (
         <div className={styles.sidebar}>
             <div className={styles.sidebarHeader}>
-                <FontAwesomeIcon icon={faBars} className={styles.sidebarIcon}/>
+                <FontAwesomeIcon 
+                    icon={faBars} 
+                    className={styles.sidebarIcon}/>
+
                 <p className={styles.sidebarTitle}>All Notes</p>
-                <FontAwesomeIcon icon={faNoteSticky} className={styles.sidebarIcon}/>
+
+                <FontAwesomeIcon 
+                    icon={faNoteSticky} 
+                    className={styles.sidebarIcon}
+                    onClick={onCreateNote}/>
             </div>
 
             <div className={styles.sidebarSearchArea}>
@@ -22,20 +33,29 @@ function Sidebar() {
             </div>
 
 
-            <div className="sidebar__notes">
-
+            <div className={styles.sidebarNotes}>
                 <ul className={styles.listNotes}>
-                    <li className={clsx(styles.sidebarNote)}> 
-                        <div className={styles.sidebarNoteTitle}>
-                            <strong>Note</strong>
-                        </div>
 
-                        <p className={styles.sidebarNotePreview}>Note preview</p>
-                        
-                        <small className={styles.sidebarNoteModified}>
-                            Last modified [date]
-                        </small>
-                    </li>
+                    {notes.map((note) => (
+                        <li className={clsx(styles.sidebarNote)}> 
+                            <div className={styles.sidebarNoteTitle}>
+                                <strong>{note.title}</strong>
+
+                                <FontAwesomeIcon 
+                                    icon={faTrash} 
+                                    className={styles.sidebarTrashIcon}
+                                    onClick={() => onDeleteNote(note.id)}/>
+                            </div>
+    
+                            <p className={styles.sidebarNotePreview}>
+                                {note.content && note.content.substring(0, 100) + "..."}
+                            </p>
+                            
+                            <small className={styles.sidebarNoteModified}>
+                                Last modified {new Date(note.lastModified).toLocaleDateString("en-GB", timeFormat)}
+                            </small>
+                        </li>
+                    ))}
                 </ul>
 
             </div>
